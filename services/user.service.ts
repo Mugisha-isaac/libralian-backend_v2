@@ -10,6 +10,17 @@ class UserServices{
      user.save()
      return user;
     }
+
+   async delete(id:string){
+     const user = await User.deleteOne({_id:id})
+     if(!user) return false
+     return true
+   } 
+
+   async getAllUser(){
+     const users = await User.find();
+     return users;
+   }
 }
 
 export default new UserServices;
