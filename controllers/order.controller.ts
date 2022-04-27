@@ -3,6 +3,7 @@ import orderServices from '../services/order.services';
 
 class OrderController{
     async createOrderController(req:express.Request,res:express.Response){
+        console.log(req.body.orderDate.toDateString())
         const order = await orderServices.createOrder(req.body.orderDate,req.body.customer,req.body.status,req.body.price,req.body.deliveryDate);
         if(order) return res.status(201).send(order)
         return res.status(400).send({message:"Failed to create new order"}); 
