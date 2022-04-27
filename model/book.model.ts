@@ -14,23 +14,16 @@ const bookSchema = new Schema({
         type:String,
         required:true
     },
-    category:{
-        type:EbookCategory,
-        required:true
+    borrower:{
+     type:String,
+     required:true
     },
-    publisher:{
-        type:String,
-        required:true
-    },
-    author:{
-        type:String,
-        required:true
-    },
-    publicationDate:{
-        type:Date
+    borrowedDate:{
+      type:Date,
+      required:true
     },
     status:{
-        type:EbookStatus,
+        type:String,
         required: true
     }
 

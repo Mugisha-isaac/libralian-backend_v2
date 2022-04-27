@@ -4,14 +4,12 @@ import { EbookStatus } from '../enums/Ebook';
 import Book from '../model/book.model';
 
 class BookServices{
-    async createBook(isbn:string, name:string, category: string, publisher: string, author: string, publicationDate:Date, status:EbookStatus){
+    async createBook(isbn:string, name:string, borrower: string,borrowedDate:Date, status:string){
         const book = new Book();
         book.isbn = isbn,
         book.name = name,
-        book.category = category,
-        book.publisher = publisher,
-        book.author = author,
-        book.publicationDate = publicationDate,
+        book.borrower = borrower,
+        book.borrowedDate = borrowedDate,
         book.status = status
         book.save()
         return book;

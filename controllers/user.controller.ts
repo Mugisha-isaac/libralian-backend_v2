@@ -11,12 +11,12 @@ class UserController{
   async deleteUserController(req:express.Request,res:express.Response){
     const user = UserServices.delete(req.params.id);
     if(!user) return res.status(400).send({success:false,message:"Failed to delete the user"});
-    return res.status(200).send({success:true,message:"User deleted successfully",data:user});
+    return res.status(200).send(user);
   }   
 
   async getUsersController(_:express.Request,res:express.Response){
       const users = await UserServices.getAllUser();
-      if(users) return res.status(200).send({success:true,message:'Users',data:users})
+      if(users) return res.status(200).send(users)
       return res.status(404).send({success:false,message:"Not Found"})
   }
 }
