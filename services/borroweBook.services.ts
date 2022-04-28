@@ -1,11 +1,9 @@
 
+import BorrowedBook from '../model/borrowedBook.model';
 
-import { EbookStatus } from '../enums/Ebook';
-import Book from '../model/book.model';
-
-class BookServices{
+class BorrowedBookServices{
     async createBook(isbn:string, name:string, borrower: string,borrowedDate:Date, status:string){
-        const book = new Book();
+        const book = new BorrowedBook();
         book.isbn = isbn,
         book.name = name,
         book.borrower = borrower,
@@ -16,16 +14,16 @@ class BookServices{
     }
 
     async getAllBooks(){
-        const books = await Book.find();
+        const books = await BorrowedBook.find();
         if(books) return books;
         return false;
     }
 
     async deleteBook(id:string){
-        const book = await Book.deleteOne({_id:id});
+        const book = await BorrowedBook.deleteOne({_id:id});
         if(!book) return false;
         return book;
     }
 }
 
-export default new BookServices;
+export default new BorrowedBookServices;
