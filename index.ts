@@ -2,11 +2,14 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import DB from './config/db.config';
-import router from './routes/user.routes';
-
+import UsersRoutes from './routes/user.routes';
+import BorrowedBooksRoutes from './routes/borrowedBook.routes';
+import OrderRoutes from './routes/order.routes';
+import BooksRoutes from './routes/book.routes';
+import AdminRoutes from './routes/admin.routes';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 
 
@@ -17,7 +20,11 @@ const port = process.env.PORT || 3000;
  app.use(cors())
  app.use(express.json())
  app.use(express.urlencoded({extended:true}))
- app.use('/user',router);
+ app.use('/user',UsersRoutes);
+ app.use('/Borrowedbook',BorrowedBooksRoutes);
+ app.use('/order',OrderRoutes);
+ app.use('/book',BooksRoutes);
+ app.use('/admin',AdminRoutes);
 
 mongoose.connect('mongodb://localhost/libralian').then(()=>{
     console.log(`Connection to database succeded`);

@@ -17,13 +17,11 @@ const userSchema = new Schema({
       address:{
           type:String,
           required:true,
-          max:150
+          
       },
       phone:{
-          type:Number,
+          type:String,
           required:true,
-          max: 10, 
-          min: 10
       }
 });
 
