@@ -21,4 +21,4 @@ class AdminServices{
     }
 }
 
-export default new  AdminServices;
+export default new  AdminServices;  
