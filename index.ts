@@ -6,6 +6,7 @@ import UsersRoutes from './routes/user.routes';
 import BorrowedBooksRoutes from './routes/borrowedBook.routes';
 import OrderRoutes from './routes/order.routes';
 import BooksRoutes from './routes/book.routes';
+import AdminRoutes from './routes/admin.routes';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -23,6 +24,7 @@ const port = process.env.PORT || 4000;
  app.use('/Borrowedbook',BorrowedBooksRoutes);
  app.use('/order',OrderRoutes);
  app.use('/book',BooksRoutes);
+ app.use('/admin',AdminRoutes);
 
 mongoose.connect('mongodb://localhost/libralian').then(()=>{
     console.log(`Connection to database succeded`);
